@@ -57,7 +57,7 @@ def netflix_solve (r, w) :
     		our_answers[(movieid, t[0])] = rating
     		w.write(str(rating) + "\n")
 
-    w.write(str(rmse(our_answers, correct_answers)) + "\n")
+    w.write("RMSE: %.4f\n" % rmse(our_answers, correct_answers))
 
 def read_correct_answers():
 	ratings_path = "../netflix-tests/irvin-probe_ratings.txt"
@@ -80,7 +80,7 @@ def is_movieid(line):
 def rmse(our_answers, correct_answers):
 	s = 0.0
 	for mc, rating in our_answers.items():
-		print("%s - %s = %s" % (rating, correct_answers[mc], rating - correct_answers[mc]))
+		#print("%s - %s = %s" % (rating, correct_answers[mc], rating - correct_answers[mc]))
 		s += (rating - correct_answers[mc])**2
-	print("s = %s" % s)
+	#print("s = %s" % s)
 	return math.sqrt(s/len(our_answers))
