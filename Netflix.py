@@ -25,7 +25,12 @@ def netflix_read (r) :
 		else :
 			yield int(line), False
 
+# -------------
+# netflix_solve
+# -------------
 
+def netflix_predict (movieid, custid) :
+	return 3
 
 # -------------
 # netflix_solve
@@ -38,4 +43,9 @@ def netflix_solve (r, w) :
     w is a writer
     """
     for t in netflix_read(r) :
-    	print (t)
+    	if t[1] :
+    		movieid = t[0]
+    		w.write(str(movieid) + ":" + "\n")
+    	else :
+    		rating = netflix_predict(movieid, t[0])
+    		w.write(str(rating) + "\n")
