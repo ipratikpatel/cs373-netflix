@@ -29,6 +29,7 @@ from Netflix import *
 # -----------
 
 class TestNetflix (unittest.TestCase) :
+
     # ----
     # read
     # ----
@@ -83,17 +84,17 @@ class TestNetflix (unittest.TestCase) :
     def test_predictor_1 (self) :
         movieid = 1
         custid = 30878
-        self.assertTrue(netflix_predict(movieid, custid) == 3) 
+        self.assertTrue(netflix_predict(movieid, custid) == 3.6586499854772847) 
 
     def test_predictor_2 (self) :
         movieid = 1
         custid = 2647871
-        self.assertTrue(netflix_predict(movieid, custid) == 3) 
+        self.assertTrue(netflix_predict(movieid, custid) == 3.339999298550191) 
 
     def test_predictor_3 (self) :
         movieid = 10
         custid = 1952305
-        self.assertTrue(netflix_predict(movieid, custid) == 3) 
+        self.assertTrue(netflix_predict(movieid, custid) == 3.2851666405883275) 
 
     # ----
     # solve
@@ -103,19 +104,19 @@ class TestNetflix (unittest.TestCase) :
         r = io.StringIO("1:\n30878\n2647871\n1283744")
         w = io.StringIO()
         netflix_solve(r, w)
-        self.assertTrue(w.getvalue() == "1:\n3\n3\n3\nRMSE: 0.8165\n")
+        self.assertTrue(w.getvalue() == "1:\n3.6586\n3.3400\n3.7594\nRMSE: 0.6134\n")
 
     def test_solve_2 (self) :
         r = io.StringIO("1000:\n2326571\n977808\n1010534\n")
         w = io.StringIO()
         netflix_solve(r, w)
-        self.assertTrue(w.getvalue() == "1000:\n3\n3\n3\nRMSE: 0.5774\n")
+        self.assertTrue(w.getvalue() == "1000:\n3.4617\n3.2373\n2.6421\nRMSE: 0.4767\n")
 
     def test_solve_3 (self) :
         r = io.StringIO("1:\n30878\n2647871\n1283744\n1000:\n2326571\n977808\n1010534\n")
         w = io.StringIO()
         netflix_solve(r, w)
-        self.assertTrue(w.getvalue() == "1:\n3\n3\n3\n1000:\n3\n3\n3\nRMSE: 0.7071\n")
+        self.assertTrue(w.getvalue() == "1:\n3.6586\n3.3400\n3.7594\n1000:\n3.4617\n3.2373\n2.6421\nRMSE: 0.5493\n")
 
     # ----
     # read_correct_answer
@@ -165,6 +166,12 @@ class TestNetflix (unittest.TestCase) :
         dict2 = {(1000,2326571) : 3, (1000,977808) : 3, (1000,1010534) : 2}
         self.assertTrue("%.4f" % rmse(dict1, dict2) == "0.5774")
 
-
+read_correct_answers()
+read_avg_movie_ratings ()
+read_avg_cust_ratings ()
+read_dec_avg_movie_ratings ()
+#read_num_ratings_movie ()
+read_cust_rating_by_decade ()
+read_movie_to_decade ()
 
 unittest.main()

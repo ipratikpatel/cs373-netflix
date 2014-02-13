@@ -32,6 +32,7 @@ def read_correct_answers () :
                 correct_answers[(movieid, custid)] = rating
                 #if movieid == 1000:
                     #print(rating)
+    return correct_answers
 
 movie_avg_rating = {}
 def read_avg_movie_ratings () :
@@ -144,9 +145,9 @@ def netflix_solve (r, w) :
         else :
             rating = netflix_predict(movieid, t[0])
             our_answers[(movieid, t[0])] = rating
-            w.write(str(rating) + "\n")
+            w.write("%.4f\n" % rating)
 
-    w.write("RMSE: %s\n" % rmse(our_answers, correct_answers))
+    w.write("RMSE: %.4f\n" % rmse(our_answers, correct_answers))
 
 def is_movieid(line):
     return ":" in line
