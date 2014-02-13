@@ -18,11 +18,9 @@ import math
 #########################
 
 correct_answers = {}
-
 def read_correct_answers () :
     ratings_path = "/u/thunt/cs373-netflix-tests/irvin-probe_ratings.txt"
     custid_path = "/u/downing/cs/netflix/probe.txt"
-    correct_answers = {}
     with open(ratings_path) as ratings_f, open(custid_path) as custid_f:
         for ratings_line in ratings_f.readlines():
             if is_movieid(ratings_line):
@@ -32,18 +30,18 @@ def read_correct_answers () :
                 custid = int(custid_f.readline())
                 rating = int(ratings_line)
                 correct_answers[(movieid, custid)] = rating
+                #if movieid == 1000:
+                    #print(rating)
 
 movie_avg_rating = {}
-
 def read_avg_movie_ratings () :
     path = "/u/thunt/cs373-netflix-tests/ericweb2-movieAveragesOneLine.txt"
     with open(path) as f :
         for line in f.readlines():
             movieid, rating = line.split(": ")
-            movie_avg_rating[int(movieid)] = float(rating)
+            movie_avg_rating[int(movieid)] = float(rating)  
 
 cust_avg_rating = {}
-
 def read_avg_cust_ratings () :
     path = "/u/thunt/cs373-netflix-tests/ericweb2-custAveragesOneLine.txt"
     with open(path) as f :
@@ -52,7 +50,6 @@ def read_avg_cust_ratings () :
             cust_avg_rating[int(custid)] = float(rating)
 
 movie_dec_avg_rating = {}
-
 def read_dec_avg_movie_ratings () :
     path = "/u/thunt/cs373-netflix-tests/ericweb2-movieDecadeAvgRatingOneLine.txt"
     with open(path) as f :
@@ -61,7 +58,6 @@ def read_dec_avg_movie_ratings () :
             movie_dec_avg_rating[int(movieid)] = float(rating)
 
 num_ratings_movie = {}
-
 def read_num_ratings_movie () :
     path = "/u/thunt/cs373-netflix-tests/ericweb2-numRatingsOneLine.txt"
     with open(path) as f :
@@ -70,26 +66,25 @@ def read_num_ratings_movie () :
             num_ratings_movie[int(movieid)] = float(num)
 
 cust_rating_by_decade = {}
-
 def read_cust_rating_by_decade () :
-    path = "../netflix-tests/jkelle-avgByCustomeridByDecadeOneLine.txt"
-    #path = "/u/thunt/cs373-netflix-tests/jkelle-avgByCustomeridByDecadeOneLine.txt"
+    #path = "../netflix-tests/jkelle-avgByCustomeridByDecadeOneLine.txt"
+    path = "/u/thunt/cs373-netflix-tests/jkelle-avgByCustomeridByDecadeOneLine.txt"
     with open(path) as f :
         for line in f.readlines():
             custid, decade, avg_rating = line.split()
             cust_rating_by_decade[(int(custid), int(decade))] = float(avg_rating)
 
 movieid_to_decade = {}
-
 def read_movie_to_decade():
     path = "/u/thunt/cs373-netflix-tests/verstarr-movie_year.txt"
     with open(path) as f:
         for line in f.readlines():
-            if "NULL" in line:
-                continue
             movieid, year = line.split(": ")
-            year = year[:3] + "0"
-            movieid_to_decade[int(movieid)] = int(year)
+            if "NULL" in line or year[0] == "0":
+                continue
+            year = int(year[:3] + "0")
+            assert 1000 < year < 3000
+            movieid_to_decade[int(movieid)] = year
 
 ########################
 #  Reading from input  #
@@ -142,7 +137,7 @@ def netflix_solve (r, w) :
 
     our_answers = {}
 
-    for line, isMovieid in netflix_read(r) :
+    for t in netflix_read(r) :
         if t[1] :
             movieid = t[0]
             w.write(str(movieid) + ":" + "\n")
