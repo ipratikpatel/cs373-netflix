@@ -19,6 +19,9 @@ import math
 
 correct_answers = {}
 def read_correct_answers () :
+    """
+    Return a dictionary of (movieid, custid): (actual rating) pairs.
+    """
     ratings_path = "/u/thunt/cs373-netflix-tests/irvin-probe_ratings.txt"
     custid_path = "/u/downing/cs/netflix/probe.txt"
     with open(ratings_path) as ratings_f, open(custid_path) as custid_f:
@@ -36,6 +39,9 @@ def read_correct_answers () :
 
 movie_avg_rating = {}
 def read_avg_movie_ratings () :
+    """
+    Populate a dictionary of movieid: average_rating pairs.
+    """
     path = "/u/thunt/cs373-netflix-tests/ericweb2-movieAveragesOneLine.txt"
     with open(path) as f :
         for line in f.readlines():
@@ -44,6 +50,9 @@ def read_avg_movie_ratings () :
 
 cust_avg_rating = {}
 def read_avg_cust_ratings () :
+    """
+    Populate a dictionary of customer_id: average_rating pairs.
+    """
     path = "/u/thunt/cs373-netflix-tests/ericweb2-custAveragesOneLine.txt"
     with open(path) as f :
         for line in f.readlines():
@@ -52,12 +61,16 @@ def read_avg_cust_ratings () :
 
 movie_dec_avg_rating = {}
 def read_dec_avg_movie_ratings () :
+    """
+    Populate a dictionary of movieid: decade average rating pairs.
+    """
     path = "/u/thunt/cs373-netflix-tests/ericweb2-movieDecadeAvgRatingOneLine.txt"
     with open(path) as f :
         for line in f.readlines():
             movieid, rating = line.split(": ")
             movie_dec_avg_rating[int(movieid)] = float(rating)
 
+'''
 num_ratings_movie = {}
 def read_num_ratings_movie () :
     path = "/u/thunt/cs373-netflix-tests/ericweb2-numRatingsOneLine.txt"
@@ -68,7 +81,9 @@ def read_num_ratings_movie () :
 
 cust_rating_by_decade = {}
 def read_cust_rating_by_decade () :
-    #path = "../netflix-tests/jkelle-avgByCustomeridByDecadeOneLine.txt"
+    """
+    Populate a dictionary of (custid, decade): avg_rating pairs.
+    """
     path = "/u/thunt/cs373-netflix-tests/jkelle-avgByCustomeridByDecadeOneLine.txt"
     with open(path) as f :
         for line in f.readlines():
@@ -77,15 +92,19 @@ def read_cust_rating_by_decade () :
 
 movieid_to_decade = {}
 def read_movie_to_decade():
+    """
+    Populate a dictionary of movieid : decade pairs.
+    """
     path = "/u/thunt/cs373-netflix-tests/verstarr-movie_year.txt"
     with open(path) as f:
         for line in f.readlines():
             movieid, year = line.split(": ")
             if "NULL" in line or year[0] == "0":
                 continue
-            year = int(year[:3] + "0")
-            assert 1000 < year < 3000
-            movieid_to_decade[int(movieid)] = year
+            decade = int(year[:3] + "0")
+            assert 1000 < decade < 3000
+            movieid_to_decade[int(movieid)] = decade
+    return movieid_to_decade
 
 ########################
 #  Reading from input  #
@@ -110,12 +129,20 @@ def netflix_read (r) :
 # -------------
 
 def netflix_predict (movieid, custid) :
+    """
+    Predict what customer custid will rate the movie movieid.
+    movieid is the movie id.
+    custid is the customer id.
+    Return a float between 0 and 5 inclusive
+    """
     if movieid in movieid_to_decade:
         decade = movieid_to_decade[movieid]
         assert( (custid, decade) in cust_rating_by_decade )
-        return (cust_rating_by_decade[(custid, decade)] + movie_avg_rating[movieid])/2
+        ans = (cust_rating_by_decade[(custid, decade)] + movie_avg_rating[movieid])/2
     else:
-        return (cust_avg_rating[custid] + movie_avg_rating[movieid])/2
+        ans = (cust_avg_rating[custid] + movie_avg_rating[movieid])/2
+    assert(0 <= ans <= 5)
+    return ans
 
 # -------------
 # netflix_solve
@@ -150,12 +177,19 @@ def netflix_solve (r, w) :
     w.write("RMSE: %.4f\n" % rmse(our_answers, correct_answers))
 
 def is_movieid(line):
+    """
+    Return True if the line represents a movieid, False otherwise.
+    line is a string
+    """
     return ":" in line
 
 def rmse(our_answers, correct_answers):
+    """
+    Compute the root mean squared error of two iterables.
+    our_answers     is a dictionary of (movieid, customerid) : (predicted rating) pairs.
+    correct_answers is a dictionary of (movieid, customerid) : (actual    rating) pairs.
+    """
     s = 0.0
     for mc, rating in our_answers.items():
         s += (rating - correct_answers[mc])**2
     return math.sqrt(s/len(our_answers))
-
-    
