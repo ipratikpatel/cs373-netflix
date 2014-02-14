@@ -33,8 +33,6 @@ def read_correct_answers () :
                 custid = int(custid_f.readline())
                 rating = int(ratings_line)
                 correct_answers[(movieid, custid)] = rating
-                #if movieid == 1000:
-                    #print(rating)
     return correct_answers
 
 movie_avg_rating = {}
@@ -72,14 +70,6 @@ def read_dec_avg_movie_ratings () :
             movieid, rating = line.split(": ")
             movie_dec_avg_rating[int(movieid)] = float(rating)
     return movie_dec_avg_rating
-
-"""num_ratings_movie = {}
-def read_num_ratings_movie () :
-    path = "/u/thunt/cs373-netflix-tests/ericweb2-numRatingsOneLine.txt"
-    with open(path) as f :
-        for line in f.readlines():
-            movieid, num = line.split(": ")
-            num_ratings_movie[int(movieid)] = float(num) """
 
 cust_rating_by_decade = {}
 def read_cust_rating_by_decade () :
