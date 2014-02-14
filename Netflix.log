@@ -1,3 +1,46 @@
+commit e507b067929a862b65bb6bc498ef3b9454b6090e
+Author: Josh Kelle <jkelle@cs.utexas.edu>
+Date:   Thu Feb 13 20:05:17 2014 -0600
+
+    removed dependency on Downing's probe.txt
+
+commit 8c0e5d5d6767a14ea3520fe46c2fd82a175d7fa7
+Author: ipratikpatel <ipratikpatel@gmail.com>
+Date:   Thu Feb 13 19:00:10 2014 -0600
+
+    Adding TestNetflix.out file
+
+commit 41f9569d6206cf314ef1bf9430b9001fb881cbe2
+Author: Josh Kelle <jkelle@cs.utexas.edu>
+Date:   Thu Feb 13 18:43:11 2014 -0600
+
+    Removed unnecessary code.
+
+commit 60899829ed9e845501c83e041d2db086c97fa373
+Author: Josh Kelle <jkelle@cs.utexas.edu>
+Date:   Thu Feb 13 18:31:02 2014 -0600
+
+    html and log
+
+commit 4854789021048505b839959866c9227807b64256
+Merge: fc40f7e 014cd01
+Author: Josh Kelle <jkelle@cs.utexas.edu>
+Date:   Thu Feb 13 18:28:16 2014 -0600
+
+    fixed merge conflict
+
+commit fc40f7eed1ff6cd5d75447490746ef2e58b2a10c
+Author: Josh Kelle <jkelle@cs.utexas.edu>
+Date:   Thu Feb 13 18:25:10 2014 -0600
+
+    Added documentation.
+
+commit 014cd01a4ad6efde990b352cc79955d2776c1f8e
+Author: ipratikpatel <ipratikpatel@gmail.com>
+Date:   Thu Feb 13 18:22:35 2014 -0600
+
+    added unit tests
+
 commit 07d9f4a05a93ecdca8943881dd17896a14b6b3a0
 Author: Josh Kelle <jkelle@cs.utexas.edu>
 Date:   Wed Feb 12 21:57:56 2014 -0600
