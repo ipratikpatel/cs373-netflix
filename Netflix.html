@@ -1,0 +1,68 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Netflix</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Netflix</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/v/filer4b/v38q001/jkelle/swe/cs373-netflix/Netflix.py">/v/filer4b/v38q001/jkelle/swe/cs373-netflix/Netflix.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;------------------------------<br>
+#&nbsp;projects/netflix/TestNetflix.py<br>
+#&nbsp;Copyright&nbsp;(C)&nbsp;2013<br>
+#&nbsp;Josh&nbsp;Kelle<br>
+#&nbsp;Pratik&nbsp;Patel<br>
+#&nbsp;-------------------------------</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-is_movieid"><strong>is_movieid</strong></a>(line)</dt><dd><tt>Return&nbsp;True&nbsp;if&nbsp;the&nbsp;line&nbsp;represents&nbsp;a&nbsp;movieid,&nbsp;False&nbsp;otherwise.<br>
+line&nbsp;is&nbsp;a&nbsp;string</tt></dd></dl>
+ <dl><dt><a name="-netflix_predict"><strong>netflix_predict</strong></a>(movieid, custid)</dt><dd><tt>Predict&nbsp;what&nbsp;customer&nbsp;custid&nbsp;will&nbsp;rate&nbsp;the&nbsp;movie&nbsp;movieid.<br>
+movieid&nbsp;is&nbsp;the&nbsp;movie&nbsp;id.<br>
+custid&nbsp;is&nbsp;the&nbsp;customer&nbsp;id.<br>
+Return&nbsp;a&nbsp;float&nbsp;between&nbsp;0&nbsp;and&nbsp;5&nbsp;inclusive</tt></dd></dl>
+ <dl><dt><a name="-netflix_read"><strong>netflix_read</strong></a>(r)</dt><dd><tt>read&nbsp;one&nbsp;line&nbsp;of&nbsp;the&nbsp;input&nbsp;file,<br>
+r&nbsp;is&nbsp;a&nbsp;reader<br>
+returns&nbsp;a&nbsp;tuple&nbsp;of&nbsp;number&nbsp;and&nbsp;boolean,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;boolean&nbsp;is&nbsp;True&nbsp;if&nbsp;number&nbsp;is&nbsp;Movie&nbsp;id,&nbsp;false&nbsp;otherwise</tt></dd></dl>
+ <dl><dt><a name="-netflix_solve"><strong>netflix_solve</strong></a>(r, w)</dt><dd><tt>read,&nbsp;eval,&nbsp;print&nbsp;ratings<br>
+r&nbsp;is&nbsp;a&nbsp;reader<br>
+w&nbsp;is&nbsp;a&nbsp;writer</tt></dd></dl>
+ <dl><dt><a name="-read_avg_cust_ratings"><strong>read_avg_cust_ratings</strong></a>()</dt><dd><tt>Populate&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;customer_id:&nbsp;average_rating&nbsp;pairs.</tt></dd></dl>
+ <dl><dt><a name="-read_avg_movie_ratings"><strong>read_avg_movie_ratings</strong></a>()</dt><dd><tt>Populate&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;movieid:&nbsp;average_rating&nbsp;pairs.</tt></dd></dl>
+ <dl><dt><a name="-read_correct_answers"><strong>read_correct_answers</strong></a>()</dt><dd><tt>Return&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;(movieid,&nbsp;custid):&nbsp;(actual&nbsp;rating)&nbsp;pairs.</tt></dd></dl>
+ <dl><dt><a name="-read_cust_rating_by_decade"><strong>read_cust_rating_by_decade</strong></a>()</dt><dd><tt>Populate&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;(custid,&nbsp;decade):&nbsp;avg_rating&nbsp;pairs.</tt></dd></dl>
+ <dl><dt><a name="-read_dec_avg_movie_ratings"><strong>read_dec_avg_movie_ratings</strong></a>()</dt><dd><tt>Populate&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;movieid:&nbsp;decade&nbsp;average&nbsp;rating&nbsp;pairs.</tt></dd></dl>
+ <dl><dt><a name="-read_movie_to_decade"><strong>read_movie_to_decade</strong></a>()</dt><dd><tt>Populate&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;movieid&nbsp;:&nbsp;decade&nbsp;pairs.</tt></dd></dl>
+ <dl><dt><a name="-rmse"><strong>rmse</strong></a>(our_answers, correct_answers)</dt><dd><tt>Compute&nbsp;the&nbsp;root&nbsp;mean&nbsp;squared&nbsp;error&nbsp;of&nbsp;two&nbsp;iterables.<br>
+our_answers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;(movieid,&nbsp;customerid)&nbsp;:&nbsp;(predicted&nbsp;rating)&nbsp;pairs.<br>
+correct_answers&nbsp;is&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;(movieid,&nbsp;customerid)&nbsp;:&nbsp;(actual&nbsp;&nbsp;&nbsp;&nbsp;rating)&nbsp;pairs.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>correct_answers</strong> = {}<br>
+<strong>cust_avg_rating</strong> = {}<br>
+<strong>cust_rating_by_decade</strong> = {}<br>
+<strong>movie_avg_rating</strong> = {}<br>
+<strong>movie_dec_avg_rating</strong> = {}<br>
+<strong>movieid_to_decade</strong> = {}</td></tr></table>
+</body></html>

@@ -1,0 +1,59 @@
+commit 07d9f4a05a93ecdca8943881dd17896a14b6b3a0
+Author: Josh Kelle <jkelle@cs.utexas.edu>
+Date:   Wed Feb 12 21:57:56 2014 -0600
+
+    Acceptance Tests. Over 1000 lines.
+
+commit 32636718c3de3c67e59586e2165e8e3ef2e80982
+Author: Josh Kelle <jkelle@cs.utexas.edu>
+Date:   Wed Feb 12 21:48:19 2014 -0600
+
+    Altered unittests to work with our new prediction algorithms.
+
+commit ca322f64abc90c32e590f805c8a9b62c6370955f
+Author: Josh Kelle <jkelle@cs.utexas.edu>
+Date:   Wed Feb 12 21:17:32 2014 -0600
+
+    Accomodated changes in cache file.
+
+commit b47aaadb435d855e9e2fe9b9a23f16c86cc9e9b6
+Author: ipratikpatel <ipratikpatel@gmail.com>
+Date:   Sun Feb 9 19:13:09 2014 -0600
+
+    RMSE is 0.97 now
+
+commit 15c514c8b7dc0fa978aec624b587dd3812a1ec69
+Author: ipratikpatel <ipratikpatel@gmail.com>
+Date:   Sun Feb 9 17:06:15 2014 -0600
+
+    Added some test cases
+
+commit 8212741990e650750708c8316dc76d4eed145ce2
+Author: ipratikpatel <ipratikpatel@gmail.com>
+Date:   Sun Feb 9 16:08:45 2014 -0600
+
+    calculates RMSE
+
+commit dda360b45bb04642e89ec65ab20d3f1f4ccdbbc4
+Author: ipratikpatel <ipratikpatel@gmail.com>
+Date:   Sun Feb 9 15:04:05 2014 -0600
+
+    Got the Dummy solution working
+
+commit b5d6494d6c30a39a2afcc0017681de033dad7071
+Author: ipratikpatel <ipratikpatel@gmail.com>
+Date:   Sun Feb 9 14:55:18 2014 -0600
+
+    Successfully reading the input file
+
+commit b5412df7821edf2bf56b30dca99da7cc7ed2d01e
+Author: ipratikpatel <ipratikpatel@gmail.com>
+Date:   Sun Feb 9 14:16:15 2014 -0600
+
+    Created all of the files
+
+commit e562dc99c815146a41b21ff6ad9744642eb0bff1
+Author: ipratikpatel <pratik.patelak47@gmail.com>
+Date:   Sun Feb 9 12:11:02 2014 -0800
+
+    Initial commit
