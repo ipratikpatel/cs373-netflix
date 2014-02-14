@@ -23,7 +23,8 @@ def read_correct_answers () :
     Return a dictionary of (movieid, custid): (actual rating) pairs.
     """
     ratings_path = "/u/thunt/cs373-netflix-tests/irvin-probe_ratings.txt"
-    custid_path = "/u/downing/cs/netflix/probe.txt"
+    custid_path = "/u/thunt/cs373-netflix-tests/ericweb2-probe.txt"
+    #custid_path = "/u/downing/cs/netflix/probe.txt"
     with open(ratings_path) as ratings_f, open(custid_path) as custid_f:
         for ratings_line in ratings_f.readlines():
             if is_movieid(ratings_line):
