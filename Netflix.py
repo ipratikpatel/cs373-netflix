@@ -46,7 +46,8 @@ def read_avg_movie_ratings () :
     with open(path) as f :
         for line in f.readlines():
             movieid, rating = line.split(": ")
-            movie_avg_rating[int(movieid)] = float(rating)  
+            movie_avg_rating[int(movieid)] = float(rating) 
+    return movie_avg_rating
 
 cust_avg_rating = {}
 def read_avg_cust_ratings () :
@@ -58,6 +59,7 @@ def read_avg_cust_ratings () :
         for line in f.readlines():
             custid, rating = line.split(": ")
             cust_avg_rating[int(custid)] = float(rating)
+    return cust_avg_rating
 
 movie_dec_avg_rating = {}
 def read_dec_avg_movie_ratings () :
@@ -69,15 +71,15 @@ def read_dec_avg_movie_ratings () :
         for line in f.readlines():
             movieid, rating = line.split(": ")
             movie_dec_avg_rating[int(movieid)] = float(rating)
+    return movie_dec_avg_rating
 
-'''
-num_ratings_movie = {}
+"""num_ratings_movie = {}
 def read_num_ratings_movie () :
     path = "/u/thunt/cs373-netflix-tests/ericweb2-numRatingsOneLine.txt"
     with open(path) as f :
         for line in f.readlines():
             movieid, num = line.split(": ")
-            num_ratings_movie[int(movieid)] = float(num)
+            num_ratings_movie[int(movieid)] = float(num) """
 
 cust_rating_by_decade = {}
 def read_cust_rating_by_decade () :
@@ -89,6 +91,7 @@ def read_cust_rating_by_decade () :
         for line in f.readlines():
             custid, decade, avg_rating = line.split()
             cust_rating_by_decade[(int(custid), int(decade))] = float(avg_rating)
+    return cust_rating_by_decade
 
 movieid_to_decade = {}
 def read_movie_to_decade():
@@ -159,7 +162,7 @@ def netflix_solve (r, w) :
     read_avg_movie_ratings ()
     read_avg_cust_ratings ()
     read_dec_avg_movie_ratings ()
-    read_num_ratings_movie ()
+    #read_num_ratings_movie ()
     read_cust_rating_by_decade ()
     read_movie_to_decade ()
 
